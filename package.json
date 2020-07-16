@@ -6,7 +6,6 @@
     "app",
     "ionic"
   ],
-  "homepage": "https://github.com/alvis/bareapp#readme",
   "bugs": {
     "url": "https://github.com/alvis/bareapp/issues"
   },
@@ -30,8 +29,31 @@
   },
   "devDependencies": {
     "@alvis/preset-ionic": "^1.x",
+    "@ionic/cli": "^6.x",
+    "@types/react": "^16.x",
+    "@types/react-dom": "^16.x",
+    "@types/react-router-dom": "^5.x",
+    "react-scripts": "^3.x",
     "presetter": "^1.x"
   },
   "dependencies": {
+    "@ionic/react": "^5.x",
+    "@ionic/react-router": "^5.x",
+    "@ionic-native/core": "^5.x",
+    "react": "^16.x",
+    "react-dom": "^16.x",
+    "react-router-dom": "^5.x"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
