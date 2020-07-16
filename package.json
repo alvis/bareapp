@@ -1,0 +1,35 @@
+{
+  "name": "bareapp",
+  "version": "0.0.0",
+  "description": "A cross-platform example app with ionic",
+  "keywords": [
+    "app",
+    "ionic"
+  ],
+  "homepage": "https://github.com/alvis/bareapp#readme",
+  "bugs": {
+    "url": "https://github.com/alvis/bareapp/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Alvis HT Tang",
+    "email": "alvis@hilbert.space"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvis/bareapp.git"
+  },
+  "scripts": {
+    "coverage": "run coverage",
+    "prepare": "presetter bootstrap",
+    "lint": "run lint",
+    "test": "run test"
+  },
+  "devDependencies": {
+    "presetter": "^3.0.0",
+    "presetter-preset-essentials": "^3.0.0",
+    "presetter-preset-react": "^3.0.0"
+  },
+  "dependencies": {
+  }
+}

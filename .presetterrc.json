@@ -1,0 +1,7 @@
+{
+  "preset": ["presetter-preset-essentials", "presetter-preset-react"],
+  "variable": {
+    "source": "src",
+    "output": "build"
+  }
+}
