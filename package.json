@@ -6,7 +6,6 @@
     "app",
     "ionic"
   ],
-  "homepage": "https://github.com/alvis/bareapp#readme",
   "bugs": {
     "url": "https://github.com/alvis/bareapp/issues"
   },
@@ -20,16 +19,44 @@
     "url": "git+https://github.com/alvis/bareapp.git"
   },
   "scripts": {
+    "build:web": "run-s ionic:build",
     "coverage": "run coverage",
+    "ionic:build": "cross-env SKIP_PREFLIGHT_CHECK=true TS_NODE_PROJECT=tsconfig.build.json craco build",
+    "ionic:serve": "cross-env HOST=0.0.0.0 PORT=8100 SKIP_PREFLIGHT_CHECK=true TS_NODE_PROJECT=tsconfig.build.json craco start",
     "prepare": "presetter bootstrap",
     "lint": "run lint",
+    "start:web": "ionic serve --no-open",
     "test": "run test"
   },
   "devDependencies": {
+    "@craco/craco": "^6.0.0",
+    "@ionic/cli": "^6.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.0.0",
     "presetter": "^3.0.0",
     "presetter-preset-essentials": "^3.0.0",
-    "presetter-preset-react": "^3.0.0"
+    "presetter-preset-react": "^3.0.0",
+    "react-scripts": "^4.0.0"
   },
   "dependencies": {
+    "@ionic/react": "^5.0.0",
+    "@ionic/react-router": "^5.0.0",
+    "@ionic-native/core": "^5.0.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-router-dom": "^5.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
