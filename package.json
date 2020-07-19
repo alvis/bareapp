@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@alvis/preset-ionic": "^1.x",
+    "@capacitor/cli": "^2.x",
     "@ionic/cli": "^6.x",
     "@types/react": "^16.x",
     "@types/react-dom": "^16.x",
@@ -37,6 +38,8 @@
     "presetter": "^1.x"
   },
   "dependencies": {
+    "@capacitor/core": "^2.x",
+    "@capacitor/ios": "^2.x",
     "@ionic/react": "^5.x",
     "@ionic/react-router": "^5.x",
     "@ionic-native/core": "^5.x",
