@@ -19,16 +19,24 @@
     "url": "git+https://github.com/alvis/bareapp.git"
   },
   "scripts": {
+    "android": "run-s build:web start:android",
     "build:web": "run-s ionic:build",
     "coverage": "run coverage",
     "ionic:build": "cross-env SKIP_PREFLIGHT_CHECK=true TS_NODE_PROJECT=tsconfig.build.json craco build",
     "ionic:serve": "cross-env HOST=0.0.0.0 PORT=8100 SKIP_PREFLIGHT_CHECK=true TS_NODE_PROJECT=tsconfig.build.json craco start",
+    "ios": "run-s build:web start:ios",
+    "open:android": "cap open android",
+    "open:ios": "cap open ios",
     "prepare": "presetter bootstrap",
     "lint": "run lint",
+    "start:android": "ionic cap run android --livereload --external",
+    "start:ios": "ionic cap run ios --livereload --external",
     "start:web": "ionic serve --no-open",
+    "sync": "cap sync",
     "test": "run test"
   },
   "devDependencies": {
+    "@capacitor/cli": "^3.0.0",
     "@craco/craco": "^6.0.0",
     "@ionic/cli": "^6.0.0",
     "@types/react": "^17.0.0",
@@ -40,9 +48,11 @@
     "react-scripts": "^4.0.0"
   },
   "dependencies": {
+    "@capacitor/android": "^3.0.0",
+    "@capacitor/ios": "^3.0.0",
+    "@ionic-native/core": "^5.0.0",
     "@ionic/react": "^5.0.0",
     "@ionic/react-router": "^5.0.0",
-    "@ionic-native/core": "^5.0.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-router-dom": "^5.0.0"

@@ -1,0 +1,13 @@
+{
+	"appId": "alvis.bareapp",
+	"appName": "bareapp",
+	"bundledWebRuntime": false,
+	"loggingBehavior": "none",
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 0
+		}
+	},
+	"server": {},
+	"webDir": "build"
+}
