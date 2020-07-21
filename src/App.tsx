@@ -13,16 +13,40 @@
  * -------------------------------------------------------------------------
  */
 
-import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { SplashScreen } from '@capacitor/splash-screen';
+import { IonApp, IonLoading, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Onboarding from './pages/Onboarding';
 
+/**
+ * hide the splash screen when all states are ready
+ * @param states list of states which could be null
+ * @returns indicates whether all the background loads are ready
+ */
+function useAutohideSplashScreen(...states: unknown[]): boolean {
+  const isReady = states.every((state) => !!state);
+  useEffect(() => {
+    if (isReady) {
+      void SplashScreen.hide();
+    }
+  }, [isReady]);
+
+  return isReady;
+}
+
 export default function App(): ReturnType<React.FC> {
-  return (
+  const preference = usePreference();
+
+  // hide the splash screen when the app is ready to load
+  const isReady = useAutohideSplashScreen(true);
+
+  return !isReady ? (
+    <IonLoading isOpen={true} />
+  ) : (
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
