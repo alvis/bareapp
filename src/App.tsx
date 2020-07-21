@@ -13,15 +13,22 @@
  * -------------------------------------------------------------------------
  */
 
-import { IonApp } from '@ionic/react';
+import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
 import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 
 export default function App(): ReturnType<React.FC> {
   return (
     <IonApp>
-      <Home />
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route path="/home" component={Home} />
+          <Redirect exact from="/" to="/home" />
+        </IonRouterOutlet>
+      </IonReactRouter>
     </IonApp>
   );
 }
