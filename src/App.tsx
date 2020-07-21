@@ -19,14 +19,16 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
+import Onboarding from './pages/Onboarding';
 
 export default function App(): ReturnType<React.FC> {
   return (
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
+          <Route path="/onboarding" component={Onboarding} />
           <Route path="/home" component={Home} />
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/onboarding" />
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>
