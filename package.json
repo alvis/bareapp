@@ -43,6 +43,8 @@
     "@ionic/react": "^5.x",
     "@ionic/react-router": "^5.x",
     "@ionic-native/core": "^5.x",
+    "@ionic-native/secure-storage": "^5.x",
+    "cordova-plugin-secure-storage-echo": "^5.x",
     "react": "^16.x",
     "react-dom": "^16.x",
     "react-router-dom": "^5.x"
