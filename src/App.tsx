@@ -19,6 +19,8 @@ import { IonReactRouter } from '@ionic/react-router';
 import React, { useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
+import PreferenceContext, { usePreference } from './preference';
+
 import Home from './pages/Home';
 import Onboarding from './pages/Onboarding';
 
@@ -44,17 +46,23 @@ export default function App(): ReturnType<React.FC> {
   // hide the splash screen when the app is ready to load
   const isReady = useAutohideSplashScreen(true);
 
-  return !isReady ? (
+  return !isReady || !preference ? (
     <IonLoading isOpen={true} />
   ) : (
-    <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route path="/onboarding" component={Onboarding} />
-          <Route path="/home" component={Home} />
-          <Redirect exact from="/" to="/onboarding" />
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </IonApp>
+    <PreferenceContext.Provider value={preference}>
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route path="/onboarding" component={Onboarding} />
+            <Route path="/home" component={Home} />
+            <Redirect
+              exact
+              from="/"
+              to={preference.showOnboarding ? '/onboarding' : '/home'}
+            />
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    </PreferenceContext.Provider>
   );
 }
