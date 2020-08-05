@@ -22,6 +22,14 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
+			<string>alvis.bareapp</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>alvis.bareapp</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
 			<string>com.getcapacitor.capacitor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>

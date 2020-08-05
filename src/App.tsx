@@ -19,6 +19,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import React, { useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
+import AuthenticationContext, { useAuth } from './auth';
 import PreferenceContext, { usePreference } from './preference';
 
 import Home from './pages/Home';
@@ -41,28 +42,31 @@ function useAutohideSplashScreen(...states: unknown[]): boolean {
 }
 
 export default function App(): ReturnType<React.FC> {
+  const auth = useAuth();
   const preference = usePreference();
 
   // hide the splash screen when the app is ready to load
   const isReady = useAutohideSplashScreen(true);
 
-  return !isReady || !preference ? (
+  return !isReady || !auth || !preference ? (
     <IonLoading isOpen={true} />
   ) : (
-    <PreferenceContext.Provider value={preference}>
-      <IonApp>
-        <IonReactRouter>
-          <IonRouterOutlet>
-            <Route path="/onboarding" component={Onboarding} />
-            <Route path="/home" component={Home} />
-            <Redirect
-              exact
-              from="/"
-              to={preference.showOnboarding ? '/onboarding' : '/home'}
-            />
-          </IonRouterOutlet>
-        </IonReactRouter>
-      </IonApp>
-    </PreferenceContext.Provider>
+    <AuthenticationContext.Provider value={auth}>
+      <PreferenceContext.Provider value={preference}>
+        <IonApp>
+          <IonReactRouter>
+            <IonRouterOutlet id="main">
+              <Route path="/home" component={Home} />
+              <Route path="/onboarding" component={Onboarding} />
+              <Redirect
+                exact
+                from="/"
+                to={preference.showOnboarding ? '/onboarding' : '/home'}
+              />
+            </IonRouterOutlet>
+          </IonReactRouter>
+        </IonApp>
+      </PreferenceContext.Provider>
+    </AuthenticationContext.Provider>
   );
 }
