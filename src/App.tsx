@@ -22,8 +22,11 @@ import { Redirect, Route } from 'react-router-dom';
 import AuthenticationContext, { useAuth } from './auth';
 import PreferenceContext, { usePreference } from './preference';
 
-import Home from './pages/Home';
-import Onboarding from './pages/Onboarding';
+import * as pages from './pages';
+
+const routes = Object.entries(pages).map(([name, page]) => (
+  <Route path={`/${name.toLowerCase()}`} component={page} />
+));
 
 /**
  * hide the splash screen when all states are ready
@@ -56,8 +59,7 @@ export default function App(): ReturnType<React.FC> {
         <IonApp>
           <IonReactRouter>
             <IonRouterOutlet id="main">
-              <Route path="/home" component={Home} />
-              <Route path="/onboarding" component={Onboarding} />
+              {...routes}
               <Redirect
                 exact
                 from="/"
