@@ -30,6 +30,7 @@ import React from 'react';
 
 // import './Account.css';
 
+import Header from '../../components/Header';
 import Private from '../../components/Private';
 
 import { mailOpen } from 'ionicons/icons';
@@ -39,6 +40,7 @@ export default function Account(): ReturnType<React.FC> {
     <Private>
       {({ identity, logout }) => (
         <IonPage>
+          <Header title="Account" />
           <IonContent>
             <IonCard>
               <img src={identity.picture} alt="profile" />
