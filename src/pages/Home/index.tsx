@@ -16,12 +16,14 @@
 import { IonContent, IonPage, IonTitle } from '@ionic/react';
 import React from 'react';
 
+import Header from '../../components/Header';
 import Private from '../../components/Private';
 
 export default function Home(): ReturnType<React.FC> {
   return (
     <Private>
       <IonPage id="home">
+        <Header />
         <IonContent fullscreen>
           <IonTitle>Hello World</IonTitle>
         </IonContent>
