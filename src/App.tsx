@@ -63,7 +63,7 @@ export default function App(): ReturnType<React.FC> {
         <IonApp>
           <IonReactRouter>
             <IonRouterOutlet id="main">
-              {...routes}
+              {routes}
               <Redirect
                 exact
                 from="/"
