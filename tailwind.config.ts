@@ -5,7 +5,7 @@
  * See the LICENSE file for details.
  * -------------------------------------------------------------------------
  *
- * @summary   Settings for react create app
+ * @summary   Configuration for tailwind
  *
  * @author    Alvis HT Tang <alvis@hilbert.space>
  * @license   MIT
@@ -13,14 +13,8 @@
  * -------------------------------------------------------------------------
  */
 
-/* istanbul ignore file */
-
-import postcss from './postcss.config';
-
-const config = {
-  style: {
-    postcss,
-  },
+export default {
+  darkMode: 'class',
+  mode: 'jit',
+  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
 };
-
-export default config;

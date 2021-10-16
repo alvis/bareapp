@@ -5,7 +5,7 @@
  * See the LICENSE file for details.
  * -------------------------------------------------------------------------
  *
- * @summary   Settings for react create app
+ * @summary   Configuration for postcss
  *
  * @author    Alvis HT Tang <alvis@hilbert.space>
  * @license   MIT
@@ -13,14 +13,9 @@
  * -------------------------------------------------------------------------
  */
 
-/* istanbul ignore file */
+import autoprefixer from 'autoprefixer';
+import tailwindcss from 'tailwindcss';
 
-import postcss from './postcss.config';
+import tailwindcssConfig from './tailwind.config';
 
-const config = {
-  style: {
-    postcss,
-  },
-};
-
-export default config;
+export default { plugins: [autoprefixer, tailwindcss(tailwindcssConfig)] };

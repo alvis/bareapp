@@ -36,5 +36,7 @@ import '@ionic/react/css/display.css';
 
 // import './theme/variables.css';
 
+import './theme/tailwind.css';
+
 // mount the app on the root element
 render(<App />, document.getElementById('root'));

@@ -42,10 +42,13 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.0.0",
+    "autoprefixer": "^9.0.0",
+    "postcss": "^7.0.0",
     "presetter": "^3.0.0",
     "presetter-preset-essentials": "^3.0.0",
     "presetter-preset-react": "^3.0.0",
-    "react-scripts": "^4.0.0"
+    "react-scripts": "^4.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.0"
   },
   "dependencies": {
     "@capacitor/android": "^3.0.0",
