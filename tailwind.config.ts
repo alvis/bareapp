@@ -13,8 +13,11 @@
  * -------------------------------------------------------------------------
  */
 
+import daisyui from 'daisyui';
+
 export default {
   darkMode: 'class',
   mode: 'jit',
+  plugins: [daisyui],
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
 };
